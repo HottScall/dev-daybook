@@ -1,14 +1,11 @@
 require 'sinatra/base'
+require "./lib/dailylog"
 
 class DevDaybook < Sinatra::Base
-  get '/' do
-    "Daily Logs"
-  end
-
   get '/dailylogs' do
-    @logs = ["daily log 1", "daily log 2", "daily log 3"]
+    @logs = DailyLog.all
 
-    erb: 'dailylogs/index'
+    erb :'dailylogs/index'
   end
 
   run! if app_file == $0
