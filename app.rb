@@ -6,8 +6,9 @@ class DevDaybook < Sinatra::Base
   end
 
   get '/dailylogs' do
-    logs = ["daily log 1", "daily log 2", "daily log 3"]
-    logs.join
+    @logs = ["daily log 1", "daily log 2", "daily log 3"]
+
+    erb: 'dailylogs/index'
   end
 
   run! if app_file == $0
