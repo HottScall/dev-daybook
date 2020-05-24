@@ -6,10 +6,8 @@ describe DailyLog do
 
       logs = DailyLog.all
 
-      expect(logs).to include ("daily log 1")
-      expect(logs).to include ("daily log 2")
-      expect(logs).to include ("daily log 3")
-
+      expect(logs).to include ("The First Log")
+      expect(logs).to include ("Second Log")
     end
   end
 end

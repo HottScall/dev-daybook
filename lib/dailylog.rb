@@ -1,5 +1,9 @@
+require 'pg'
+
 class DailyLog
   def self.all
-    ["daily log 1", "daily log 2", "daily log 3"]
+    connection = PG.connect(dbname: 'dev_daybook')
+    result = connection.exec("SELECT * FROM daily_logs;")
+    result.map { |log| log['title']}
   end
 end

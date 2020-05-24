@@ -8,5 +8,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 #add your list of gems here.
 gem 'sinatra'
-gem 'rspec'
+gem 'pg'
 gem 'capybara'
+gem 'rspec'
