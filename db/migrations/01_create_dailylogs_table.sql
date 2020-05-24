@@ -1,0 +1,1 @@
+CREATE TABLE daily_logs(id SERIAL PRIMARY KEY, title VARCHAR(80), log VARCHAR(2500))
