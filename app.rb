@@ -8,5 +8,9 @@ class DevDaybook < Sinatra::Base
     erb :'dailylogs/index'
   end
 
+  get '/dailylogs/create' do
+    erb :'dailylogs/create'
+  end
+
   run! if app_file == $0
 end
