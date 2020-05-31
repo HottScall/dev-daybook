@@ -1,4 +1,5 @@
 require 'dailylog'
+require 'database_helpers'
 
 describe DailyLog do
   describe ".all" do
@@ -23,9 +24,12 @@ describe DailyLog do
     it "should allow a user to create a new log" do
       log = DailyLog.create(title: 'Day 1', log: 'Today I did...').first
 
-      expect(log['title']).to eq 'Day 1'
-      expect(log['log']).to eq 'Today I did...'
+      persisted_data = persisted_data(id: log.id)
 
+      expect(log).to be_a DailyLog
+      expect(log.id).to eq persisted_data.first['id']
+      expect(log.title).to eq "Day 1"
+      expect(log.log).to eq "Today I did..."
     end
   end
 end
