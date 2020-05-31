@@ -14,4 +14,13 @@ describe DailyLog do
       expect(logs).to include ("Second Log")
     end
   end
+
+  describe ".create" do
+    it "should allow a user to create a new log" do
+      DailyLog.create(title: 'Day 1', log: 'Today I did...')
+
+      expect(DailyLog.all).to include "Day 1"
+
+    end
+  end
 end
