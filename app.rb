@@ -2,6 +2,16 @@ require 'sinatra/base'
 require "./lib/dailylog"
 
 class DevDaybook < Sinatra::Base
+
+  attr_reader :id, :title, :log
+
+  def initialize(id:, title:, log:)
+    @id = id
+    @title = title
+    @log = log 
+  end
+
+
   get '/dailylogs' do
     @logs = DailyLog.all
 

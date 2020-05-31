@@ -1,6 +1,6 @@
 <ul>
-  <% @logs.each do |bookmark| %>
   <% @logs.each do |log| %>
-    <li><%= log =%></li>
+    <li><%= log.title %></li>
+    <li><%= log.log %></li>
   <% end %>
 </ul>

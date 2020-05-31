@@ -9,7 +9,9 @@ class DailyLog
     end
 
     result = connection.exec("SELECT * FROM daily_logs;")
-    result.map { |log| log['title']}
+    result.map do |log|
+      DailyLog.create(id: log['id'], title: log['title'], logs: log['logs'])
+    end
   end
 
   def self.create(title:, log:)
@@ -18,6 +20,6 @@ class DailyLog
     else
       connection = PG.connect(dbname: 'dev_daybook')
     end
-    connection.exec("INSERT INTO daily_logs (title, log) VALUES('#{title}', '#{log}')")
+    connection.exec("INSERT INTO daily_logs (title, log) VALUES('#{title}', '#{log}') RETURNING id, title, log")
   end
 end

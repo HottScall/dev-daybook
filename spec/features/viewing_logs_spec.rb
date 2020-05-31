@@ -8,10 +8,9 @@ feature 'viewing daily logs' do
 
     connection.exec("INSERT INTO daily_logs VALUES (1, 'The First Log', 'This is my first log');")
     connection.exec("INSERT INTO daily_logs VALUES (2, 'Second Log', 'This is my second log');")
-
     visit('/dailylogs')
 
-    expect(page).to have_content "The First Log"
-    expect(page).to have_content "Second Log"
+    expect(page).to have_content('The First Log', 'This is my first log')
+    expect(page).to have_content('Second Log', 'This is my second log')
   end
 end

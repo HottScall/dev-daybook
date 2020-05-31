@@ -6,7 +6,6 @@ feature 'creating daily logs' do
     fill_in('log', :with => 'Today I did...')
     click_button('Submit')
 
-    expect(page).to have_content 'Day 1'
-    expect(page).to have_content 'Today I did....'
+    expect(page).to have_content('Day 1', 'Today I did....')
   end
 end
